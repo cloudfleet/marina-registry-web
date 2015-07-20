@@ -4,7 +4,7 @@ import settings
 
 def load_repository_info(image_name):
     with open(settings.IMAGES_DATA_PATH  , "r") as fh:
-        repository_info = ([image_data for image_data in yaml.safe_load(fh) if image_data["name"] in args.image ] + [None])[0]
+        repository_info = ([image_data for image_data in yaml.safe_load(fh) if image_data["name"] == image_name ] + [None])[0]
     if image:
         repository_info["builds"] = _load_builds(image_name)
 
