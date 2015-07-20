@@ -4,7 +4,7 @@ import repositories
 
 app = Flask(__name__)
 
-api_base = "/api/v1/"
+api_base = "/api/v1"
 
 @app.route(api_base + '/repos/<namespace>/<repository>', methods=['GET'])
 def get_repository(namespace, repository):
@@ -20,4 +20,4 @@ def get_build_logs(namespace, repository, build_id):
 
 if __name__ == '__main__':
     print os.environ
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', debug=True)
