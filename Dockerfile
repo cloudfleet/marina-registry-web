@@ -8,6 +8,6 @@ RUN pip install -r requirements.txt
 ADD . /opt/marina/web
 
 
-CMD /usr/bin/python -u marina-web.py
+CMD /usr/bin/python -u marina_web.py
 
 EXPOSE 5000
