@@ -1,5 +1,5 @@
 FROM debian:jessie
-RUN apt-get install -y python-pip
+RUN apt-get update && apt-get install -y python-pip
 WORKDIR /opt/marina/web
 ADD requirements.txt /opt/conduit/requirements.txt
 RUN pip install pip --upgrade
