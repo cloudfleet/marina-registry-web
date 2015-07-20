@@ -14,7 +14,7 @@ def get_repository(namespace, repository):
     return jsonify(repository_info)
 
 @app.route(api_base + '/repos/<namespace>/<repository>/builds/<build_id>/logs', methods=['GET'])
-def get_repository(namespace, repository, build_id):
+def get_build_logs(namespace, repository, build_id):
     return jsonify(repositories.load_build_logs('%s/%s' % (namespace, repository), build_id))
 
 
