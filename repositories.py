@@ -14,7 +14,7 @@ def load_repository_info(image_name):
 def _load_builds(image_name):
     return [_load_build_info(image_name, build_id) for build_id in os.listdir(settings.BUILD_LOGS_PATH)]
 
-def _load_build(image_name, build_id):
+def _load_build_info(image_name, build_id):
     try:
         with open(settings.BUILD_LOGS_PATH + "/" + image_name + "/" + build_id + "/build-data.yml", "r") as fh:
             build_info = yaml.safe_load(fh)
