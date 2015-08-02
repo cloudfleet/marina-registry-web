@@ -2,14 +2,21 @@ import yaml
 import os
 import settings
 
+def load_repository_list():
+    with open(settings.IMAGES_DATA_PATH  , "r") as fh:
+        repository_list = ([_add_build_info(repository_info) for repository_info in yaml.safe_load(fh))
+
 def load_repository_info(image_name):
     with open(settings.IMAGES_DATA_PATH  , "r") as fh:
         repository_info = ([image_data for image_data in yaml.safe_load(fh) if image_data["name"] == image_name ] + [None])[0]
     if repository_info:
-        repository_info["builds"] = _load_builds(image_name)
-        return repository_info
+        return _add_build_info(repository_info)
     else:
         return None
+
+def _add_build_info(repository_info):
+    repository_info["builds"] = _load_builds(repository_info["name"])
+    return repository_info
 
 def _load_builds(image_name):
     return [_load_build_info(image_name, build_id) for build_id in os.listdir(settings.BUILD_LOGS_PATH + "/" + image_name)]

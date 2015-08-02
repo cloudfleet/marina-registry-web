@@ -7,6 +7,14 @@ app = Flask(__name__)
 api_base = "/api/v1"
 
 @app.route(api_base + '/repos/<namespace>/<repository>', methods=['GET'])
+def list_repositories():
+
+    repository_list = repositories.load_repository_list()
+
+    return jsonify({repositories: repository_list})
+
+
+@app.route(api_base + '/repos/<namespace>/<repository>', methods=['GET'])
 def get_repository(namespace, repository):
 
     repository_info = repositories.load_repository_info('%s/%s' % (namespace, repository))
