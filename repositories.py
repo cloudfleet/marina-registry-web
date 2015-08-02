@@ -12,7 +12,7 @@ def load_repository_info(image_name):
         return None
 
 def _load_builds(image_name):
-    return [_load_build_info(image_name, build_id) for build_id in os.listdir(settings.BUILD_LOGS_PATH)]
+    return [_load_build_info(image_name, build_id) for build_id in os.listdir(settings.BUILD_LOGS_PATH + "/" + image_name)]
 
 def _load_build_info(image_name, build_id):
     try:
