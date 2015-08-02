@@ -25,6 +25,13 @@ def get_repository(namespace, repository):
 def get_build_logs(namespace, repository, build_id):
     return jsonify(repositories.load_build_logs('%s/%s' % (namespace, repository), build_id))
 
+@app.route(api-base + '/github/pushes/<organization>/', methods=['POST'])
+def receive_github_webhook(organization):
+
+    print request.get_json()
+
+    return jsonify({"success": True})
+
 
 if __name__ == '__main__':
     print os.environ
