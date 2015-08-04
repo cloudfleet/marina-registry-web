@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 api_base = "/api/v1"
 
-@app.route(api_base + '/repos/<namespace>/<repository>', methods=['GET'])
+@app.route(api_base + '/repos/', methods=['GET'])
 def list_repositories():
 
     repository_list = repositories.load_repository_list()
