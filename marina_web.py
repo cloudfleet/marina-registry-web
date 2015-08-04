@@ -11,7 +11,7 @@ def list_repositories():
 
     repository_list = repositories.load_repository_list()
 
-    return jsonify({repositories: repository_list})
+    return jsonify({"repositories": repository_list})
 
 
 @app.route(api_base + '/repos/<namespace>/<repository>', methods=['GET'])
