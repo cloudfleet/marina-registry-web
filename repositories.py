@@ -5,6 +5,7 @@ import settings
 def load_repository_list():
     with open(settings.IMAGES_DATA_PATH  , "r") as fh:
         repository_list = [_add_build_info(repository_info) for repository_info in yaml.safe_load(fh)]
+    return repository_list
 
 def load_repository_info(image_name):
     with open(settings.IMAGES_DATA_PATH  , "r") as fh:
