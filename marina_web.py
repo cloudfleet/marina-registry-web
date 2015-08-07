@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 import settings, traceback, getopt, sys, os
 import repositories
+import github
 
 app = Flask(__name__)
 
@@ -29,7 +30,7 @@ def get_build_logs(namespace, repository, build_id):
 def receive_github_webhook(organization):
 
     print request.get_json()
-
+    github.handle_push(request.get_json()
     return jsonify({"success": True})
 
 
