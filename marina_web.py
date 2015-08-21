@@ -30,7 +30,7 @@ def get_build_logs(namespace, repository, build_id):
 def receive_github_webhook(organization):
 
     print request.get_json()
-    github.handle_push(request.get_json()
+    github.handle_push(request.get_json())
     return jsonify({"success": True})
 
 
